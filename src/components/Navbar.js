@@ -7,7 +7,7 @@ export default function Navbar() {
       <ul >
 
         <li><Link className='link' to='/'>Home</Link></li>
-        <li><Link className='link' to='/post/jhg'>Post Detail</Link></li>
+        <li><Link className='link' to='/post/'>Post Detail</Link></li>
         <li><Link className='link' to='/createPost'>Create Post</Link></li>
 
       </ul>

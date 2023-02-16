@@ -49,7 +49,9 @@ function handleSubmission(e){
         <textarea {...content} placeholder='Enter your post' required ></textarea>
       </div>
 
-      <button id='create-post-button'>Create Post</button>
+     <div id='create-post-button' className='form-field'>
+      <button >Create Post</button>
+     </div>
     </form>
     </div>
   )
