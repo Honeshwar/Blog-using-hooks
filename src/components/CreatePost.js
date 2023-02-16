@@ -1,16 +1,36 @@
 import React, { useState } from 'react'
+import firestore from '../firebase';
+import useFormInputs from './CudtomHooks';
 
 export default function CreatePost() {
+//here in line 7,8,9 there is redundancy/repetive code just for different variable
+//we will improve it using custome hooks
+
 //use state hooks to get data from input
-const [title,setTitle] = useState('');
-const [subTitle,setSubTitle] = useState('');
-const [content,setContent] = useState('');
+const title  = useFormInputs();
+const subTitle  = useFormInputs();
+const content  = useFormInputs();
 
 function handleSubmission(e){
   e.preventDefault();
   console.log("title",title);
   console.log("subtitle",subTitle);
   console.log("content",content);
+  //adding create post to firestore
+  firestore//db
+  .collection('Posts')
+   .add({//if not collection in firestore so it create new one,add an document
+    title:title.value,
+    subTitle:subTitle.value,
+    content:content.value,
+    createAt: new Date()//date time return
+  })
+  // .than(()=>{
+  //   console.log("Post is created successfully");
+  // })
+  // .catch((err)=>{
+  //   console.log("error while creating Post",err);
+  // });
 }
 
   return (
@@ -18,15 +38,15 @@ function handleSubmission(e){
     <form onSubmit={handleSubmission}>
       <div className='form-field'>
       <label>Title</label>
-        <input value={title} onChange={(e)=>{setTitle(e.target.value);}} placeholder='Enter title'/>
+        <input {...title} placeholder='Enter title'/>
       </div>
       <div className='form-field'>
       <label>Sub Title</label>
-        <input value={subTitle} onChange={(e)=>{setSubTitle(e.target.value);}} placeholder='Enter Subtitle'/>
+        <input {...subTitle} placeholder='Enter Subtitle'/>
       </div>
       <div className='form-field'>
       <label>Content</label>
-        <textarea value={content} onChange={(e)=>{setContent(e.target.value);}}placeholder='Enter your post'></textarea>
+        <textarea {...content} placeholder='Enter your post'></textarea>
       </div>
 
       <button id='create-post-button'>Create Post</button>
