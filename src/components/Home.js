@@ -7,6 +7,7 @@ export default function Home() {
   useEffect(()=>{
     firestore
     .collection('Posts')
+    .orderBy("createAt","desc")
     .get()//entire collect return as promise
     .then((snapshot)=>{
       const posts = snapshot.docs.map((doc)=>{

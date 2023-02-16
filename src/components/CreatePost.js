@@ -38,15 +38,15 @@ function handleSubmission(e){
     <form onSubmit={handleSubmission}>
       <div className='form-field'>
       <label>Title</label>
-        <input {...title} placeholder='Enter title'/>
+        <input {...title} placeholder='Enter title' required/>
       </div>
       <div className='form-field'>
       <label>Sub Title</label>
-        <input {...subTitle} placeholder='Enter Subtitle'/>
+        <input {...subTitle} placeholder='Enter Subtitle' required/>
       </div>
       <div className='form-field'>
       <label>Content</label>
-        <textarea {...content} placeholder='Enter your post'></textarea>
+        <textarea {...content} placeholder='Enter your post' required ></textarea>
       </div>
 
       <button id='create-post-button'>Create Post</button>
