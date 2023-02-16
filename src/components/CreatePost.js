@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import firestore from '../firebase';
-import useFormInputs from './CudtomHooks';
+import useFormInputs from './CustomHooks';
 
 export default function CreatePost() {
 //here in line 7,8,9 there is redundancy/repetive code just for different variable
