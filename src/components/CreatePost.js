@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import firestore from '../firebase';
 import useFormInputs from './CustomHooks';
 

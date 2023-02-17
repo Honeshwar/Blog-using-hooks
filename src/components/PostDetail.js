@@ -18,7 +18,7 @@ firestore
 }).catch((err)=>{
 console.log(err);
 });
-},[]);
+},[postId]);
   return (
     <div className='post-detail'>
       <h3>{post.title}</h3>
